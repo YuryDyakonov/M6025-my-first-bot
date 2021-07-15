@@ -2,3 +2,4 @@
 *.log
 settings.py
 __pycache__/
+back/

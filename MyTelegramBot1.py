@@ -21,7 +21,7 @@ def chat(update: Updater, context: CallbackContext):
 
 
 def main():
-    updtr = Updater(settings.TOKEN_TELEGRAMM )
+    updtr = Updater(settings.TOKEN_TELEGRAMM)
     updtr.dispatcher.add_handler(CommandHandler('start', start_bot))
     updtr.dispatcher.add_handler(MessageHandler(Filters.text, chat))
 
