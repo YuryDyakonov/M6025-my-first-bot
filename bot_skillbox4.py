@@ -60,7 +60,7 @@ def bot(text):
 
 
 # Обучение модели
-print('Начинаем обучение')
+# print('Начинаем обучение')
 X = []
 y = []
 for intent in BOT_CONFIG['intents']:
@@ -70,19 +70,19 @@ for intent in BOT_CONFIG['intents']:
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-print('Векторизация ', datetime.now())
+# print('Векторизация ', datetime.now())
 vectorizer = CountVectorizer(analyzer='char', ngram_range=(1,3), preprocessor=clean)
 # vectorizer = TfidfVectorizer(analyzer='char', ngram_range=(1,3))
 X_train_vectorized = vectorizer.fit_transform(X_train)
 X_test_vectorized = vectorizer.transform(X_test)
 
-print('Классификация ', datetime.now())
+# print('Классификация ', datetime.now())
 clf = LogisticRegression()
 # clf = RidgeClassifier()
 clf.fit(X_train_vectorized, y_train)
 
-print(clf.score(X_train_vectorized, y_train), clf.score(X_test_vectorized, y_test))
-print('Классификация закончена ', datetime.now())
+# print(clf.score(X_train_vectorized, y_train), clf.score(X_test_vectorized, y_test))
+# print('Классификация закончена ', datetime.now())
 
 # Тестирование бота
 # while True:
